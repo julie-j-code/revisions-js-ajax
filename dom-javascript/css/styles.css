@@ -1,0 +1,57 @@
+section{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 30px;
+}
+
+div{
+    position: relative;
+}
+
+figure{
+    margin: 0;
+}
+
+figure>img{
+    width: 100%;
+}
+
+figcaption{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+}
+
+span{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    padding: 5px;
+}
+form > div{
+    margin-bottom: 5px;;
+}
+.invalid-feedback{
+    display:none;
+    color:red;
+}
+
+.is-valid{
+    border: 2px solid green;
+}
+
+.is-invalid{
+    border: 2px solid red;
+}
+
+.is-invalid + .invalid-feedback{
+    display: block;
+}
