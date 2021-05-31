@@ -36,7 +36,6 @@ function ajaxGet(url){
 ajaxGet('https://jsonplaceholder.typicode.com/users').then(reponse => {
     // On reçoit une réponse
     let users = JSON.parse(reponse)
-
     // On envoie une nouvelle demande
     return ajaxGet('https://jsonplaceholder.typicode.com/posts?userId='+ users[0].id)
 }).then(reponse2 => {
@@ -60,3 +59,4 @@ let getPosts = async function(){
 getPosts().then(posts => {
     console.log(posts)
 })
+
