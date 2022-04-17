@@ -22,6 +22,21 @@
   getPosts();
 
 
+  // autres exemples thecatapi affiche des images de chat aléatoires
+  // async function chatAsync(){
+  //   let reponse = await fetch('https://api.thecatapi.com/v1/images/search');
+  //   let data = await reponse.json();
+  //   document.querySelector('img').src = data[0].url;
+  // }
+
+  // chatAsync();
+
+  // equivalent de :
+  fetch('https://api.thecatapi.com/v1/images/search')
+  .then(reponse => reponse.json())
+  .then(data=>document.querySelector('img').src = data[0].url);
+
+
 
 
   
