@@ -8,7 +8,6 @@ const transports = ["voiture", "vélo", "marche", "voiture", "tram", "voiture", 
 
 const transportObjet = transports.reduce(
     (acc, current) => {
-
         if (!acc[current]) {
             acc[current] = 0;
         } acc[current] += 1;        
