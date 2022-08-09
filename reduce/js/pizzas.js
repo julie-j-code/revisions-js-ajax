@@ -18,8 +18,6 @@ for (let commande of commandes) {
 
 commandes.forEach((element)=>console.log(element.pizzaName))
 
-commandes.reduce((acc,element)=>console.log(element.pizzaName),{})
-
 // fin rappel  --------------
 
 
