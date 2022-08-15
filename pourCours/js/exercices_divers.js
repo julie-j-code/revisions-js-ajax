@@ -265,3 +265,32 @@ console.log(newPlayers);
 game(8, 9);
 console.log(newPlayers);
 
+
+// string ------------------------- 
+
+function findA(str) {
+    return str.indexOf("a")
+}
+
+console.log("findA", findA("Banana"))
+
+function extractA(str) {
+    return str.split("a").join("")
+}
+
+console.log("extractA", extractA("Banana"))
+
+function extractBan(str) {
+    console.log(str);
+    // const newStr = str.split("").splice(0, 3).join("");
+    // equivalent désigné
+    const newStr = str.substr(0,3);
+    console.log("newString", newStr);
+    console.log("String en sortie inchangée", str);
+}
+
+extractBan("Banana")
+
+
+
+
