@@ -36,7 +36,7 @@ const chatsRefuge = {
 }
 
 for (chat in chatsRefuge) {
-    console.log(chat);
+    console.log("for in!!!!!!!!!!!!!!!", chat);
 }
 
 // Puisque for of ne marche pas pour des objets, si on veut obtenir juste les valeurs des clés/valeurs
@@ -58,8 +58,8 @@ for (value of utilisateurs) {
 }
 
 utilisateurs.forEach((element, index) => {
-    console.log(element);
-    console.log(`${element} index ${index}`)
+    console.log("element du foreach seul", element);
+    console.log(`elemnt ${element} d'index ${index}`)
 });
 
 
@@ -109,7 +109,7 @@ console.log(total);
 
 function Bird() {
     // on pourrait dire en quelque sorte que weight est public 
-    // parce qu'il a été par indirectement déclaré à l'exterieur de la fonction
+    // parce qu'il a été indirectement déclaré à l'exterieur de la fonction
     this.weight = 15;
 }
 function Bird() {

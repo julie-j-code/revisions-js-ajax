@@ -54,9 +54,10 @@ function isTooLong(str) {
 }
 
 function myFct(arg1, arg2) {
-    if (typeofarg1 == 'number' && typeof (arg2) == 'number') { return arg1 * arg2 + arg1 + arg2 }
+    if (typeof arg1 == 'number' && typeof arg2 == 'number') { return arg1 * arg2 + arg1 + arg2 }
     else return "-999999999";
 }
+console.log("myFct typeof", myFct(2,9));
 
 function aprec(notation) {
     if (notation >= 0 && notation < 7) {
