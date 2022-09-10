@@ -1,29 +1,51 @@
-const addbutton = document.querySelector("#add");
-const todolist = document.querySelector("#todolist");
+window.addEventListener('load', () => {
 
-// todoinput.addEventListener("onchange", getTodo(event));
-addbutton.addEventListener("click", addToList);
+    // on charge les todos depuis local storage, ce qui n'était pas prévu initialement
+    todos = JSON.parse(localStorage.getItem('todos')) || [];
 
-function addToList(event) {
-    event.preventDefault();
-    valueInput = todoinput.value;
-    categorie=categories.value;
-    console.log(valueInput)
-    // dès qu'on a récupéré la valeur, on crée notre paragraphe
-    let todoItem = document.createElement("p")
-    todoItem.classList.add('todo-item');
-    todoItem.innerHTML = `${valueInput} - Category : ${categorie} <button class="delete" onclick="deleteItem(event)"> x </button>`;
-    // puis on l'accroche à la liste existante
-    todolist.appendChild(todoItem);
-    todoinput.value = ""
-}
+    const addbutton = document.querySelector("#add");
 
-function deleteItem(event) {
-    myElementToRemove = event.target.parentElement;
-    console.log(myElementToRemove);
-    myElementToRemove.remove();
-}
+    addbutton.addEventListener("click", addToList);
 
+    function addToList(event) {
+        event.preventDefault();
+        const todo = {
+            content: todoinput.value,
+            category: categories.value,
+            createdAt: new Date().getTime()
+        }
 
+        // on rajoute l'enregistrement dans local storage pour l'exercice
+        todos.push(todo);
+        localStorage.setItem('todos', JSON.stringify(todos));
+        displayTodos();
+    }
+
+    displayTodos();
+
+    function displayTodos() {
+        const todolist = document.querySelector("#todolist");
+        todolist.innerHTML = "";
+        todos.forEach(todo => {
+            let todoItem = document.createElement("p")
+            todoItem.classList.add('todo-item');
+            todoItem.innerHTML = `${todo.content} - Category : ${todo.category}`;
+            const btnDelete = document.createElement('button');
+            btnDelete.addEventListener("click", (event) => {
+                myElementToRemove = event.target.parentElement;
+                myElementToRemove.remove();
+                todos = todos.filter(t => t != todo);
+                localStorage.setItem('todos', JSON.stringify(todos));
+            });
+            btnDelete.classList.add("delete");
+            btnDelete.textContent="x";
+            todoItem.appendChild(btnDelete);
+            todolist.appendChild(todoItem);
+            todoinput.value = "";
+
+        });
+
+    }
+})
 
 

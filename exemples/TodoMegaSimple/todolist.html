@@ -15,14 +15,15 @@
     <section class="create-todo">
         <h3>CREATE A TODO</h3>
         <form>
-                <input type="text" id="todoinput">
-                <select name="categories" id="categories">
-                    <option>--- Catégories ---</option>
-                    <option value="work" id="work">travail</option>
-                    <option value="home" id="home">home</option>
-                    <option value="outside" id="outside">outside</option>
-                </select>
-                <button type="submit" id="add">Ajouter</button>
+            <input type="text" id="todoinput">
+            <select name="categories" id="categories">
+                <option selected="true" disabled="disabled">Select category </option>
+                <option value="work" id="work">Work</option>
+                <option value="home" id="home">Home</option>
+                <option value="leasure" id="leasure">Leasure</option>
+
+            </select>
+            <button type="submit" id="add">Ajouter</button>
         </form>
     </section>
     <!-- End of New Todo -->
