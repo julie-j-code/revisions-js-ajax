@@ -1,9 +1,6 @@
 const addbutton = document.querySelector("#add");
 const todolist = document.querySelector("#todolist");
 
-let newItem = "";
-let btnDelete;
-
 // todoinput.addEventListener("onchange", getTodo(event));
 addbutton.addEventListener("click", addToList);
 
