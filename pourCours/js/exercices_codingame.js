@@ -73,7 +73,6 @@ function aprec(notation) {
         return "GG";
     }
     else { return "BUG"; }
-
 }
 
 

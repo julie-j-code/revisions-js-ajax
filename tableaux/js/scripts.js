@@ -74,7 +74,7 @@ console.log("methode map");
 let nouveautableau = tableau.map((valeur, index) => {
     return `${valeur} - ${index}`;
 })
-console.table(nouveautableau);
+console.table("nouveau tableau", nouveautableau);
 
 // autre utilisation
 console.log ("méthode map optimisée")

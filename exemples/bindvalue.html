@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Une fonction au focus change la couleur de fond de l'input et génère une div dont le nom de classe sera identique à l'id de l'input.Ce, pour pouvoir distinguer les éléments div générés au focus de chaque input. Le premier élément de la collection sera donc unique. Il récupèrera au fur et à mesure du changement de la valeur de l'input cette valeur pour le retourner dans le div dédié</p>
+    <input type="text" id="fname" onfocus="idOnFocus(this.id)" onchange="valueOnChange(event)"><br>
+    <input type="text" id="lname" onfocus="idOnFocus(this.id)" onchange="valueOnChange(event)">
+
+    <script>
+
+        // version initiale : sympa mais les div dynamiquement crées s'écrasent quand on switch d'un input à un autre
+        // un bon exercice pour illustrer le scope d'une constante
+        // puisque si myDiv était déclarée à l'intérieur des fonctions
+        // deux div indépendantes seraient crées
+        // const myDiv = document.createElement("DIV");
+
+        // function idOnFocus(x) {
+        //     document.getElementById(x).style.background = "yellow";
+        //     myDiv.innerText = x;
+        //     document.body.appendChild(myDiv);
+        // }
+        // function valueOnChange(e) {
+        //     var val = e.target.value;
+        //     myDiv.innerText += ` a la valeur : ${val}`;
+        // }
+        // fin première version
+
+        // nouvelle version pour tenter de reproduire le bind value d'Angular
+        function idOnFocus(x) {
+            myDiv = document.createElement("DIV");
+            document.getElementById(x).style.background = "yellow";
+
+            if (!document.getElementsByClassName(x)[0]) {
+                myDiv.innerText = x;
+                myDiv.setAttribute('class', x)
+                document.body.appendChild(myDiv);
+            }
+        }
+
+        function valueOnChange(e) {
+            var val = e.target.value;
+            console.log(e.target.id);
+            if (document.getElementsByClassName(e.target.id)[0].innerText !== e.target.id) {
+                document.getElementsByClassName(e.target.id)[0].innerText += ` a la valeur : ${val}`;
+            }
+            document.getElementsByClassName(e.target.id)[0].innerText = `${e.target.id} a la valeur : ${val}`;
+        }
+
+    </script>
+
+</body>
+
+</html>
