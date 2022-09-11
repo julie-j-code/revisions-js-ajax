@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./shared/style.css">
+    <title>Bind value input / elements</title>
+</head>
 
 <body>
-
-    <p>Une fonction au focus change la couleur de fond de l'input et génère une div dont le nom de classe sera identique à l'id de l'input.Ce, pour pouvoir distinguer les éléments div générés au focus de chaque input. Le premier élément de la collection sera donc unique. Il récupèrera au fur et à mesure du changement de la valeur de l'input cette valeur pour le retourner dans le div dédié</p>
-    <input type="text" id="fname" onfocus="idOnFocus(this.id)" onchange="valueOnChange(event)"><br>
-    <input type="text" id="lname" onfocus="idOnFocus(this.id)" onchange="valueOnChange(event)">
+    <section id="firstSection">
+        <p>Une fonction au focus change la couleur de fond de l'input et génère une div dont le nom de classe sera identique
+            à l'id de l'input.Ce, pour pouvoir distinguer les éléments générés au focus de chaque input. Le premier
+            élément de la collection sera donc unique. Il récupère à la validation des données saisies (entrée) la valeur de
+            l'input</p>
+        <input type="text" id="fname" onfocus="idOnFocus(this.id)" onchange="valueOnChange(event)"><br>
+        <input type="text" id="lname" onfocus="idOnFocus(this.id)" onchange="valueOnChange(event)">
+    </section>
 
     <script>
 
@@ -34,7 +46,8 @@
             if (!document.getElementsByClassName(x)[0]) {
                 myDiv.innerText = x;
                 myDiv.setAttribute('class', x)
-                document.body.appendChild(myDiv);
+                // la ligne ci-dessous est la seule qui dépende du contexte pour l'id de l'élément
+                document.getElementById("firstSection").appendChild(myDiv);
             }
         }
 
