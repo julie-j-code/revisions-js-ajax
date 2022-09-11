@@ -9,6 +9,7 @@
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
     --primary-glow: 0px 0px 4px var(--primary);
+    --dark-glow: 0px 0px 4px var(--dark);
 }
 
 /* Resets */
@@ -74,4 +75,19 @@ input[type="text"], select {
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
     margin-bottom: 1.5rem;
+}
+
+pre{
+    color: var(--grey);
+    margin: 1rem 0;
+}
+
+input[type="text"].inline{
+    display: inline-block;
+    margin-right: 1.5rem;
+}
+
+button.inline{
+    background-color: var(--dark);
+    box-shadow: var(--dark-glow);
 }
