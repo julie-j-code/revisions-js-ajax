@@ -1,19 +1,36 @@
 @import "../shared/style.css";
 
 #todolist .todo-item {
-    background-color: #FFF;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
 }
 
 .todo-item button {
-    padding: 0.5rem 1rem;
-    margin-left: 0.5rem;
-    background-color: var(--danger);
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  background-color: var(--danger);
 }
 
 .todo-item button:hover {
-    opacity: 0.75;
+  opacity: 0.75;
+}
+
+/* parce que la première section inclut les options de couleur */
+section:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* pour les options de couleur */
+aside {
+  font-size: 0.8rem;
+}
+
+aside input[type="text"] {
+  font-size: 0.8rem;
+  padding: 0.8rem;
 }

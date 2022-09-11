@@ -6,29 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="../shared/dynamic_color.js"></script>
     <title>Simpple ToDoList Initiale</title>
 
 </head>
 
 <body>
-    <!-- New Todo -->
-    <section class="create-todo">
-        <h3>CREATE A TODO</h3>
-        <form>
-            <input type="text" id="todoinput">
-            <select name="categories" id="categories">
-                <option selected="true" disabled="disabled">Select category </option>
-                <option value="work" id="work">Work</option>
-                <option value="home" id="home">Home</option>
-                <option value="leasure" id="leasure">Leasure</option>
 
-            </select>
-            <button type="submit" id="add">Ajouter</button>
-        </form>
+
+    <!-- New Todo -->
+    <section>
+        <div class="create-todo">
+            <h3>CREATE A TODO</h3>
+            <form>
+                <input type="text" id="todoinput">
+                <select name="categories" id="categories">
+                    <option selected="true" disabled="disabled">Select category </option>
+                    <option value="work" id="work">Work</option>
+                    <option value="home" id="home">Home</option>
+                    <option value="leasure" id="leasure">Leasure</option>
+
+                </select>
+                <button type="submit" id="add">Ajouter</button>
+            </form>
+        </div>
+        <!-- pour modifier dynamiquement les couleurs. ce qui marche pour l'une vaut pour toutes !!!  -->
+        <aside>
+            <!-- ici pour la couleur dominante primary -->
+            <p>Change primary color hexadecimal + Enter</p>
+            <input type="text" placeholder="#EA40A4" onchange="myColor_set(event)">
+        </aside>
+
     </section>
     <!-- End of New Todo -->
     <!-- Todo List -->
     <section>
+        <hr>
         <h3>ToDo List</h3>
         <div class="list" id="todolist">
         </div>
