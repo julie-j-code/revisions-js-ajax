@@ -1,0 +1,32 @@
+@import "../shared/style.css";
+
+#context-menu{
+   background-color: var(--light);
+   position: absolute;
+   display: none;
+   background-color: #fff;
+   padding: 2rem;
+   border-radius: 0.5rem;
+   box-shadow: var(--shadow);
+}
+
+ul{
+    list-style: circle;
+}
+
+li:hover{
+    background-color: var(--primary);
+}
+
+/* juste pour tester ::marker */
+::marker{
+    color: var(--primary);
+}
+
+/* ne sert à rien si je joue directement sur le style.PROPERTY= */
+.active{
+    display: none;
+}
+
+
+

@@ -11,17 +11,19 @@
 
 <body>
     <section id="firstSection">
-        <p>Une fonction au focus change la couleur de fond de l'input et génère un div dont le nom de classe sera identique
+        <p>Une fonction au focus change la couleur de fond de l'input et génère un div dont le nom de classe sera
+            identique
             à l'id de l'input. Ce, pour pouvoir distinguer les éléments générés au focus de chaque input. Le premier
-            élément de la collection sera donc unique. Il récupère à la validation des données saisies (entrée) la valeur de
+            élément de la collection sera donc unique. Il récupère à la validation des données saisies (entrée) la
+            valeur de
             l'input</p>
-            <pre>Le premier met à jour le contenu du div généré au focus sur l'input au fur à mesure de la saisie de l'utilisateur (onkeyup)</pre>
-        <input type="text" id="fname" onfocus="idOnFocus(this.id)" 
-        onkeyup="onKeybordChange(event)">
+        <pre>Le premier met à jour le contenu du div généré au focus sur l'input au fur à mesure de la saisie de l'utilisateur (onkeyup)</pre>
+        <input type="text" id="fname" onfocus="idOnFocus(this.id)" onkeyup="onKeybordChange(event)">
         <pre>Le deuxième met à jour le contenu du div généré au focus sur l'input une fois la saisie terminée (onchange)</pre>
-        <input type="text" id="lname" onfocus="idOnFocus(this.id)" onchange ="valueOnChange(event)">
+        <input type="text" id="lname" onfocus="idOnFocus(this.id)" onchange="valueOnChange(event)">
         <pre>Le troisième ne met à jour le contenu du div généré au focus sur l'input qu'après avoir cliqué sur le bouton de soumission (onclick)</pre>
-        <input type="text" id="pseudo" onfocus="idOnFocus(this.id)" class="inline" ><button type="submit" onclick="onSubmitedValue(event)" class="inline">Submit</button>
+        <input type="text" id="pseudo" onfocus="idOnFocus(this.id)" class="inline"><button type="submit"
+            onclick="onSubmitedValue(event)" class="inline">Submit</button>
     </section>
 
     <script>
@@ -73,7 +75,7 @@
             }
             document.getElementsByClassName(e.target.id)[0].innerText = `${e.target.id} a la valeur : ${val}`;
         }
-        
+
         // le bouton pour l'exercice récupère la valeur de l'element qui le précède
         function onSubmitedValue(e) {
             e.preventDefault();

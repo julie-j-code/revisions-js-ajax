@@ -20,13 +20,7 @@
     font-family: 'montserrat', sans-serif;
 }
 
-button {
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: initial;
-}
+
 
 /* End of Resets */
 
@@ -91,3 +85,4 @@ button.inline{
     background-color: var(--dark);
     box-shadow: var(--dark-glow);
 }
+
