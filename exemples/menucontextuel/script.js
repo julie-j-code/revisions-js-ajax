@@ -26,7 +26,4 @@ window.onload = () => {
         menu.style.display = "none"
     })
 
-
-
-
 }
