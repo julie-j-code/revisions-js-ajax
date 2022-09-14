@@ -1,15 +1,14 @@
-const myButton=document.getElementById('myButton');
-var myElement = document.getElementsByTagName('main')[0];
-console.log("myElement", myElement);
+const myButton = document.getElementById('myButton');
 
-const showTemplate=(x)=>{
-     const myList=document.getElementById("article");
-     const elementFromTemplate=myList.outerHTML.replaceAll("template","div");
-     console.log("elementFromTemplate",elementFromTemplate);
-     myElement.innerHTML=elementFromTemplate; 
- }
+const showTemplate = (x) => {
+    const myTemp = document.getElementById("article");
+    const elementFromTemplate = myTemp.outerHTML.replaceAll("template", "div");
+    const myElement = document.querySelectorAll(x)[0];
+    console.log("myElement", myElement);
+    myElement.innerHTML = elementFromTemplate;
+}
 
-myFunction(main);
+showTemplate("main");
 
 
 
