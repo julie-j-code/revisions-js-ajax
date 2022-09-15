@@ -10,11 +10,23 @@ constructor(){
     // et on grefffe le tout sur  ce dont s'agit, c'est à dire le customElement qui va être crée
     this.appendChild(this.span)
     // fonction compteur
-    window.setInterval(()=>{
+
+}
+
+// ça, c'est bien. on touche aux cycles de vie des composants, abordé avec Angular et React !!! De cette façon, le setInterval s'execute au moment où le customElement est injecté en tant que fonction de rappel pour le cycle de vie 
+
+connectedCallback(){
+    this.timer= window.setInterval(()=>{
         this.i++
         // et ne pas oublié de recharger, classiquement le innerHTML après chaque incrémentation
         this.span.innerHTML=this.i
     },1000)
+
+}
+
+// de même, on pourra s'assurer en console que le compteur ne continue pas à tourner... 
+disconnectedCallback(){
+    window.clearInterval(this.timer)
 }
 
 }
