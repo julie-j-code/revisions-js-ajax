@@ -1,3 +1,4 @@
+import ColContainer from "./components/ColContainer.js";
 import SecondTimer from "./components/SecondTimer.js";
 
 customElements.define('second-timer', SecondTimer);
@@ -13,4 +14,7 @@ const addNewInput = () => {
     document.getElementsByTagName("second-timer")[0].setAttribute("mycustomattribute","Nouveau champ détecté !")
 }
 addBtn.addEventListener("click", addNewInput)
+
+
+customElements.define("col-container", ColContainer);
 
