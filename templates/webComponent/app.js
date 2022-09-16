@@ -1,4 +1,5 @@
 import ColContainer from "./components/ColContainer.js";
+import NewsArticle from "./components/NewsArticle.js";
 import SecondTimer from "./components/SecondTimer.js";
 
 customElements.define('second-timer', SecondTimer);
@@ -17,4 +18,6 @@ addBtn.addEventListener("click", addNewInput)
 
 
 customElements.define("col-container", ColContainer);
+
+customElements.define("news-article", NewsArticle)
 
