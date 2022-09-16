@@ -1,6 +1,6 @@
 
 // Custom Element <col-container>
-export default class SecondTimer extends HTMLElement {
+export default class ColContainer extends HTMLElement {
     constructor(){
         super()   
         this.setAttribute("class","row")  
