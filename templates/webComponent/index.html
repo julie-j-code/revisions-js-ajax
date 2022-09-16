@@ -25,7 +25,7 @@
     </div>
 
     <div class="container">
-        <col-container>
+        <col-container id="destination">
             <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis id error sequi at quibusdam
                 voluptas beatae harum reprehenderit, itaque vero quos dolorum est quasi praesentium deserunt maiores
                 illum eaque facilis!</div>
@@ -36,6 +36,14 @@
                 doloribus odit minus aperiam repellendus accusamus dolor praesentium? Repellat quod tempora dolorem.
                 Alias impedit nesciunt quam consequatur?</div>
         </col-container>
+
+        <!-- Un fragment étant un morceau de DOM qui n'est encore utilisé nulle part, on va en recréer ici -->
+        <template id="myTemplate">
+            <div class="container bg-primary p-3 my-3 rounded col-12">
+                <h1 class="display-3">Titre</h1>
+                <p   class="my-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur culpa, a doloribus voluptatibus delectus ipsa deleniti maxime dignissimos qui? Hic iusto aperiam dolore accusamus itaque possimus modi repellat, ad dolor?</p>
+            </div>
+        </template>
     </div>
 
 </body>
