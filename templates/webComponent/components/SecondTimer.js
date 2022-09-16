@@ -1,4 +1,4 @@
-class SecondTimer extends HTMLElement {
+export default class SecondTimer extends HTMLElement {
 
     // par défaut, tous les attributs ne sont pas observables, mais on va pouvoir en déclarer certains comme l'étant pour utiliser un fonction de callback intéressante qui réagit à la modifiction des attributs
 
@@ -47,20 +47,3 @@ class SecondTimer extends HTMLElement {
     }
 
 }
-
-// pour l'instancier en quelque sorte, on le définit comme instace de la classe SecondTimer, identifiable comme élément <second-timer> :
-customElements.define('second-timer', SecondTimer);
-
-
-const addBtn = document.querySelector("#add")
-const addNewInput = () => {
-    const newInput = document.createElement('input')
-    newInput.classList.add("form-control")
-    newInput.classList.add("mb-2")
-    const myForm = document.getElementById("myForm")
-    myForm.appendChild(newInput)
-    // et pour tester le setAttribute et l'obervattion du changement
-    document.getElementsByTagName("second-timer")[0].setAttribute("mycustomattribute","Nouveau champ détecté !")
-}
-addBtn.addEventListener("click", addNewInput)
-
