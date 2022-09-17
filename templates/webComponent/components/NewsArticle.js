@@ -1,10 +1,17 @@
 
 // All together : on réunit les 3 le Custom Element, le template et le Shadow Dom
 
-const template=document.createElement('template')
-template.innerHTML=`
-<p class="bg-success text-white">The component Works ! And it works :)</p>
-`
+// Dans l'hypothèse abracadabrante où on crée le template depuis le js
+// const template=document.createElement('template')
+// template.innerHTML=`
+// <p class="bg-success text-white">The component Works ! And it works :)</p>
+// `
+
+// Dans l'hypothèse où on va se servir d'un fragment de page HTML
+const template=document.querySelector('#newsarticle')
+// Et c'est toujours là que je me cogne la tête. Puisqu'on ne peut (sauf à charger en ajax un fragment depuis n'importe quelle page) avoir injecter un template externe à la page active !!! 
+
+
 export default class NewsArticle extends HTMLElement {
     constructor(){
         super() 
