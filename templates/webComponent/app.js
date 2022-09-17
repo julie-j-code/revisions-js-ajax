@@ -1,5 +1,5 @@
 import ColContainer from "./components/ColContainer.js";
-import NewsArticle from "./components/NewsArticle.js";
+import NewsArticle from "./components/news-article/NewsArticle.js";
 import SecondTimer from "./components/SecondTimer.js";
 
 customElements.define('second-timer', SecondTimer);
