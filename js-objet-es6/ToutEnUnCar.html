@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript Class Method</h2>
+
+    <p>How to define and use a Class method with private attributes.</p>
+    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Classes/Private_class_fields">Private Class Fields</a>
+
+    <p id="demo"></p>
+
+    <script>
+        class Car {
+
+            // à supposer que #num soit le numéro de série
+            // on pourra y accéder si besoin mais pas de bras,  pas de chocolat ! 
+            #num;
+
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+                this.#num = "23223268"
+
+            }
+            age() {
+                let date = new Date();
+                return date.getFullYear() - this.year;
+            }
+
+            getNum() {
+                // 👇️ Accessing private field
+                return this.#num;
+            }
+        }
+
+        let myCar = new Car("Ford", 2014);
+        document.getElementById("demo").innerHTML =
+            "My car is " + myCar.age() + " years old. Et son numéro de série est" + myCar.getNum();
+    </script>
+
+</body>

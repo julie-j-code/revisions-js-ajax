@@ -9,14 +9,20 @@ class CompteEpargne extends Compte{
      * @param {number} taux Taux d'intérêts
      * @param {number} rythme Rythme de versement des intérêts (en millisecondes)
      */
-    constructor(titulaire, montant = 50, taux = 0.005, rythme = 1000){
+    
+    #taux;
+    constructor(titulaire, montant = 50, rythme = 1000){
         super(titulaire, montant);
-        this.taux = taux;
+        this.#taux = 0.08;
         this.rythme = rythme;
 
         // Intérêts de taux toutes les "rythme" millisecondes (0.5% toutes les 5 secondes)
         setInterval(() => {
-            this.solde *= 1+this.taux;
+            this.solde *= 1+this.#taux;
         }, this.rythme);
     }
+
+    // puisque taux est privée, on ne peut  plus y accéder qu'avec un getter !!! 
+    getTaux=()=>this.#taux
+        
 }

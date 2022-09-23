@@ -2,6 +2,7 @@
  * Titulaires de comptes
  */
 class Titulaire{
+
     /**
      * Titulaires de comptes bancaires
      * @param {string} nom Nom du titulaire

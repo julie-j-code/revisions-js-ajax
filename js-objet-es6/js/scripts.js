@@ -22,8 +22,10 @@ compte1.debiter(20);
 compte1.afficherSolde();
 
 let compteEpargne = new CompteEpargne(titulaire2, 15);
-
 console.log(compteEpargne);
+
+// impossible d'accéder à la  propriété taux en dehors de la classe car elle est privée. il faut faire appel à un getter :)
+console.log("Propriété privée Taux d'épargne", compteEpargne.getTaux());
 
 compteEpargne.crediter(35);
 compteEpargne.crediter(35);
