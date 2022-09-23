@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.myDiv1, .myDiv2, .myDiv3,.myDiv4, .myDiv5  {
+    height: 500px;
+    visibility: hidden;  
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.myDiv1{
+    background-color: aqua;
+}
+.myDiv2{
+    background-color:blueviolet;
+}
+.myDiv3{
+    background-color:brown
+}
+.myDiv4{
+    background-color:blue
+}
+.myDiv5{
+    background-color:black
+}
+
