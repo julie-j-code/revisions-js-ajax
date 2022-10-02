@@ -1,0 +1,13 @@
+li[data-choisi="true"]{
+    color:green;
+position: relative;
+}
+li[data-choisi="true"]::after{
+    content: "sélectionné";
+    position: absolute;
+    font-style: italic;
+    right: 30px;
+}
+
+
+
