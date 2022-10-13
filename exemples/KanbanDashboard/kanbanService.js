@@ -25,6 +25,60 @@ export default class KanbanAPI {
 
         return item;
     }
+
+    static updateItem(itemId, newProps) {
+		const data = read();
+		const [item, currentColumn] = (() => {
+			for (const column of data) {
+				const item = column.items.find(item => item.id == itemId);
+
+				if (item) {
+					return [item, column];
+				}
+			}
+		})();
+
+		if (!item) {
+			throw new Error("Item not found.");
+		}
+
+		item.content = newProps.content === undefined ? item.content : newProps.content;
+
+		// Mettre à jour la colonne et la position
+		if (
+			newProps.columnId !== undefined
+			&& newProps.position !== undefined
+		) {
+			const targetColumn = data.find(column => column.id == newProps.columnId);
+
+			if (!targetColumn) {
+				throw new Error("Target column not found.");
+			}
+
+			// Supprimer l'élément de sa colonne actuelle
+			currentColumn.items.splice(currentColumn.items.indexOf(item), 1);
+
+			// Déplacer l'élément dans sa nouvelle colonne et sa nouvelle position
+			targetColumn.items.splice(newProps.position, 0, item);
+		}
+
+		save(data);
+	}
+
+	static deleteItem(itemId) {
+		const data = read();
+
+		for (const column of data) {
+			const item = column.items.find(item => item.id == itemId);
+
+			if (item) {
+				column.items.splice(column.items.indexOf(item), 1);
+			}
+		}
+
+		save(data);
+	}
+    
 }
 
 // Ceci devrait provenir d'un service (ce que je ferais sous Angular) mais on va simplifier
