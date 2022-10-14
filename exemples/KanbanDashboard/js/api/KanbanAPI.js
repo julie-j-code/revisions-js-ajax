@@ -1,32 +1,33 @@
 export default class KanbanAPI {
-    static getItems(columnId) {
-        const column = read().find(column => column.id == columnId);
-        if (!column) {
-            return []
-        }
+	static getItems(columnId) {
+		const column = read().find(column => column.id == columnId);
 
-        return column.items
-    }
+		if (!column) {
+			return [];
+		}
 
-    static insertItem(columnId, content){
-        const data = read();
-        const column = read().find(column=>column.id==columnId);
-        const item = {
-            id:Math.floor(Math.random()*10000),
-            content:content
-        };
+		return column.items;
+	}
 
-        if(!column){
-            throw new Error("Column does not exist")
-        }
+	static insertItem(columnId, content) {
+		const data = read();
+		const column = data.find(column => column.id == columnId);
+		const item = {
+			id: Math.floor(Math.random() * 100000),
+			content
+		};
 
-        column.items.push(item);
-        save(data);
+		if (!column) {
+			throw new Error("Column does not exist.");
+		}
 
-        return item;
-    }
+		column.items.push(item);
+		save(data);
 
-    static updateItem(itemId, newProps) {
+		return item;
+	}
+
+	static updateItem(itemId, newProps) {
 		const data = read();
 		const [item, currentColumn] = (() => {
 			for (const column of data) {
@@ -44,7 +45,7 @@ export default class KanbanAPI {
 
 		item.content = newProps.content === undefined ? item.content : newProps.content;
 
-		// Mettre à jour la colonne et la position
+		// Update column and position
 		if (
 			newProps.columnId !== undefined
 			&& newProps.position !== undefined
@@ -55,10 +56,10 @@ export default class KanbanAPI {
 				throw new Error("Target column not found.");
 			}
 
-			// Supprimer l'élément de sa colonne actuelle
+			// Delete the item from it's current column
 			currentColumn.items.splice(currentColumn.items.indexOf(item), 1);
 
-			// Déplacer l'élément dans sa nouvelle colonne et sa nouvelle position
+			// Move item into it's new column and position
 			targetColumn.items.splice(newProps.position, 0, item);
 		}
 
@@ -78,10 +79,7 @@ export default class KanbanAPI {
 
 		save(data);
 	}
-    
 }
-
-// Ceci devrait provenir d'un service (ce que je ferais sous Angular) mais on va simplifier
 
 function read() {
 	const json = localStorage.getItem("kanban-data");
