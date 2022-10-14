@@ -3,11 +3,16 @@ import DropZone from "./DropZone.js";
 import Item from "./Item.js";
 
 export default class Column {
+	dropZone= new DropZone()
 	constructor(id, title) {
-		const topDropZone = DropZone.createDropZone();
+		// const topDropZone = DropZone.createDropZone();
+		// si createDropZone() n'est pas statique il faudrait d'abord instancier DropZone
+
+		const topDropZone = this.dropZone.createDropZone()
 
 		this.elements = {};
-		this.elements.root = Column.createRoot();
+		// this.elements.root = Column.createRoot();
+		this.elements.root = this.createRoot();
 		this.elements.title = this.elements.root.querySelector(".kanban__column-title");
 		this.elements.items = this.elements.root.querySelector(".kanban__column-items");
 		this.elements.addItem = this.elements.root.querySelector(".kanban__add-item");
@@ -27,7 +32,8 @@ export default class Column {
 		});
 	}
 
-	static createRoot() {
+	// static createRoot() {
+	createRoot() {
 		const range = document.createRange();
 
 		range.selectNode(document.body);

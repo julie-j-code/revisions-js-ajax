@@ -2,8 +2,12 @@ import DropZone from "./DropZone.js";
 import KanbanAPI from "../api/KanbanAPI.js";
 
 export default class Item {
+	// si DropZone() n'était pas statique, il faudrait créer une instance
+	dropZone = new DropZone()
+
 	constructor(id, content) {
-		const bottomDropZone = DropZone.createDropZone();
+		// const bottomDropZone = DropZone.createDropZone();
+		const bottomDropZone = this.dropZone.createDropZone();
 
 		this.elements = {};
 		this.elements.root = Item.createRoot();
