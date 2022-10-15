@@ -1,26 +1,25 @@
 // exemples simples et didactiques
 export default class Book {
     static totalBooks = 0
+    static allBooks=[]
+
     constructor(title, pages, notation="") {
         this.title = title
         this.pages = pages
         this.notation = notation;
         this.page = 1
-        // faire en sorte qu'à chaque fois qu'un livre est instancié, la quantité de livres se mette à jour... 
+        // faire en sorte qu'à chaque fois qu'un livre est instancié, la quantité de livres se mette à jour ainsi que le tableau des books
         Book.totalBooks+=1;
+        Book.allBooks = [{title, pages, notation},...Book.allBooks]
     }
 
-    // on doit pouvoir récupérer la  page sur laquelle on est actuellement. Par défaut, un livre commence à la page 1
     getPage = () => {
         console.log(this.page);
     }
 
-    // on doit pouvoir tourner la page  pour se rendre à la page suivante
     nextPage () {
-        // console.log(localStorage.getItem("ma page"))
         if (this.page < this.pages) {
             this.page++
-            // localStorage.setItem("ma page", JSON.stringify(this.page))
             console.log("après incrementation", this.page);
         }
     }
