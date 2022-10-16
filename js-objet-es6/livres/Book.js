@@ -1,9 +1,14 @@
+import { Service } from "./Service.js";
+
 // exemples simples et didactiques
 export default class Book {
     static totalBooks = 0
-    static allBooks = []
+    // static allBooks = []
+    // pas besoin d'instancier le service
+    static allBooks = Service.data
 
     constructor(title, pages, notation = "") {
+        console.log(Book.allBooks);
         this.title = title
         this.pages = pages
         this.notation = notation;
@@ -11,6 +16,8 @@ export default class Book {
         // faire en sorte qu'à chaque fois qu'un livre est instancié, la quantité de livres se mette à jour ainsi que le tableau des books
         Book.totalBooks += 1;
         Book.allBooks = [{ title, pages, notation }, ...Book.allBooks]
+        // faire en sorte que l'enregistrement ne se fasse que si il n'y a pas de doublons
+        Book.checkEntries(this.title, Book.allBooks)
     }
 
     getPage = () => {
@@ -24,13 +31,24 @@ export default class Book {
         }
     }
 
-    // on doit pouvoir réinitialiser la page à la fermeture
     close() {
         this.page = 1
     }
 
+    static checkEntries(title, array) {
+        for (let item of array) {
+            if (Object.values(item).includes(title)) {
+                console.log("Déjà en bibliothèque")
+            }
+            else {
+                console.log("c'est bon : enregistrement effecuté")
+                localStorage.setItem("Library", JSON.stringify(array))
+            }
+        }
+    }
+
     static findByWord(txt) {
-        txt=txt.toLowerCase()
+        txt = txt.toLowerCase()
         const result = Book.allBooks.filter(b => b.title.toLowerCase().includes(txt))
         console.log("Résultat de recherche", result);
         return result;

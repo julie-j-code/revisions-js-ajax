@@ -6,8 +6,8 @@ console.log(Book.allBooks)
 let secondBook = new Book("Guide des musés", 750)
 console.log(Book.allBooks)
 
-let thirdBook = new Book("Guide des océans", 2200)
-let fourstBook = new Book("Guide des lacs", 2200)
+let thirdBook = new Book("Guide des océans", 1500)
+let fourstBook = new Book("Guide des lacs", 2000)
 console.log(Book.allBooks)
 
 Book.evaluate(3,"C'est formidable !!!", Book.allBooks);
