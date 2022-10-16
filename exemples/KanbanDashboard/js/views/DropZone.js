@@ -2,9 +2,8 @@ import KanbanAPI from "../api/KanbanAPI.js";
 
 export default class DropZone {
 	// static createDropZone() {
-	createDropZone() {
+	static createDropZone() {
 		const range = document.createRange();
-
 		range.selectNode(document.body);
 
 		const dropZone = range.createContextualFragment(`
