@@ -99,6 +99,13 @@ const depenses = {
     vestimentaire: 150
 }
 
+
+const depensesdddddd = Object.values(depenses).reduce((previous, current) => {
+    return previous + current
+}, 0)
+
+console.log(depensesdddddd);
+
 /* reduce s'appliquant à des arrays, il faut au préalable récupérer les valeurs en un tableau pour pouvoir en bénéficier. c'est efficace et propre !!!!!!!! */
 const total = Object.values(depenses).reduce((acc, current) => {
     return acc + current;
@@ -137,6 +144,11 @@ function palindrome(str) {
     } else { console.log("false") }
 
 }
+
+
+
+const array = [5, 6, 8, 9]
+console.log(array.toString().replace((/,/g), ''), "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
 
 // Autre solution ++++ 
 /*function palindrome(str) {
@@ -284,12 +296,29 @@ function extractBan(str) {
     console.log(str);
     // const newStr = str.split("").splice(0, 3).join("");
     // equivalent désigné
-    const newStr = str.substr(0,3);
+    const newStr = str.substr(0, 3);
     console.log("newString", newStr);
     console.log("String en sortie inchangée", str);
 }
 
 extractBan("Banana")
+
+// codingame interview : 
+
+function calc(array, n1, n2) {
+    if (n2 < array.length) {
+        array.reduce((acc, current) => {
+            if (current <= n2) {
+
+                console.log(acc + current)
+                return acc + current;
+            }
+        }, n1)
+    }
+}
+
+calc([0, 1, 2, 3, 4, 5, 3], 0, 1)
+
 
 
 
